@@ -1,8 +1,19 @@
 body {
-    background-color: #393e46;
+    background-color: #222831;
 }
 .header {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     height: 50px;
-    background-color: #222831;
+    background-color: #393e46;
+    padding: 15px 50px;
+}
+.loginBtn {
+    color: #eeeeee;
+    font-weight: 700;
+    background-color: #d65a31;
+}
+.loginBtn:active {
+    background-color: #a53e1b;
 }
