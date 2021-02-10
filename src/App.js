@@ -1,14 +1,14 @@
 import './App.css'
 import { useState } from 'react'
 import Header from './components/Header'
-import Login from './components/registartion/Login'
+import Login from './components/registration/Login'
 import LinerChart from './components/charts/linerChart'
 import PieCharts from './components/Rotation/PieCharts'
 import Cards from './components/Rotation/Cards'
-import Signup from './components/registartion/Signup'
+import Signup from './components/registration/Signup'
 import User from './components/Rotation/User'
-import ForgotPassword from './components/registartion/ForgotPassword'
-import Navbar from './components/NavBar/Navbar'
+import ForgotPassword from './components/registration/ForgotPassword'
+import Navbar from './components/Navbar/Navbar'
 import LeadingPage from './components/LeadingPage/LeadingPage'
 
 import {
@@ -40,7 +40,7 @@ function App() {
                         </div>
                         <PieCharts />
                     </Router>
-                    <Router path="/registartion">
+                    <Router path="/registration">
                         <Signup loggedIn={setLoggedIn} />
                     </Router>
                     <Route path="/login">
