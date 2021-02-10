@@ -13,6 +13,12 @@ function Navbar() {
     const [sidebar, setSidebar] = useState(false)
 
     const showSidebar = () => setSidebar(!sidebar)
+    console.log('object')
+    console.log('object')
+    console.log('object')
+    console.log('object')
+    console.log('object')
+v
 
     return (
         <>
