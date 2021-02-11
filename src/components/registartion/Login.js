@@ -4,12 +4,15 @@ import './login.css'
 import * as EmailValidator from 'email-validator'
 import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import Google from './loginWith/Google'
+import Facebook from './loginWith/Facebook'
 import 'react-toastify/dist/ReactToastify.css'
+import firebase from 'firebase'
 import { Container } from 'react-bootstrap'
 import { auth } from './firebase'
 import './login.css'
 toast.configure()
-export default function Login({ user }) {
+export default function Login({ setUser }) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const history = useHistory()
@@ -51,7 +54,7 @@ export default function Login({ user }) {
         try {
             await login(emailRef.current.value, passwordRef.current.value)
             userMessage(true, `✅ Loggined`)
-            user(auth.currentUser)
+            setUser(auth.currentUser)
             return history.push('/dashboard')
         } catch (error) {
             return userMessage(false, `❌ ${error.message}`)
@@ -68,7 +71,12 @@ export default function Login({ user }) {
                     <Card>
                         <Card.Body className="cardBody">
                             <Form>
-                                <h2 className="text-center mb-4">Sign up</h2>
+                                <h2 className="text-center mb-4 drk">
+                                    Sign up
+                                </h2>
+                                <Facebook />
+
+                                <Google setUser={setUser} />
                                 <Form.Group id="email">
                                     <Form.Label>Email</Form.Label>
                                     <Form.Control
@@ -100,6 +108,7 @@ export default function Login({ user }) {
                                     <span> Or</span> <br />
                                 </div>
                             </Form>
+
                             <Link to="/registartion">
                                 <Button className="w-100 btn ">Sing in</Button>
                             </Link>

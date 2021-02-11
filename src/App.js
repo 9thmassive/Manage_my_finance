@@ -2,14 +2,15 @@ import './App.css'
 import { useState } from 'react'
 import Header from './components/Header'
 import Login from './components/registartion/Login'
-import LinerChart from './components/charts/linerChart'
-import PieCharts from './components/Rotation/PieCharts'
-import Cards from './components/Rotation/Cards'
+
 import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
-import Navbar from './components/NavBar/Navbar'
+import Navbar from './components/Navbar/Navbar'
 import LeadingPage from './components/leadingPage_proto/LeadingPage'
+import Transaction from './pages/Transaction'
+import Income from './pages/Income'
+import Expenses from './pages/Expenses'
 // import LeadingPage from './components/LeadingPage/LeadingPage'
 import FindSaving from './components/findSaving/FindSaving'
 import Profil from './components/profil/Profil'
@@ -26,29 +27,27 @@ function App() {
     return (
         <div className="App">
             <Router>
-                {user ? <Navbar /> : '<Header />'}
+                {!user ? <Navbar /> : null}
 
                 <Switch>
+                    <Route path="/" exact component={Transaction} />
+                    <Route path="/income" component={Income} />
+                    <Route path="/expenses" component={Expenses} />
                     <Route exact path="/">
                         {user ? (
-                            <Redirect exact to="/dashboard" />
+                            <Redirect push to="/dashboard" />
                         ) : (
                             <LeadingPage />
                         )}
                     </Route>
                     <Router exact path="/dashboard">
-                        {/* <div className="linerChart">
-                            <Cards />
-                            <LinerChart />
-                        </div>
-                        <PieCharts /> */}
                         <Dashboard />
                     </Router>
                     <Router exact path="/registration">
-                        <Signup user={setUser} />
+                        <Signup setUser={setUser} />
                     </Router>
                     <Route exact path="/login">
-                        <Login user={setUser} />
+                        <Login setUser={setUser} />
                     </Route>
                     <Route exact path="/user">
                         <User />

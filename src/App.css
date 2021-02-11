@@ -53,3 +53,22 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.drk {
+    color: black;
+}
+.login_with {
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    border: 2px grey solid;
+    border-radius: 5px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10px;
+    padding-left: 50px;
+}
+.login_with_img {
+    width: 20px;
+}
