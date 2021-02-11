@@ -2,42 +2,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
 }
 
-.home,
-.reports,
-.products {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+.transaction,
+.income,
+.expenses {
+    color: white;
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
 }
-
-
-
-
+.ulCl {
+    padding-top: 150px;
+}
+.logg {
+    width: 150px;
+    cursor: pointer;
+}
+.butt {
+    background-color: #d65a31;
+}
+.butt:hover {
+    background-color: #d48f78;
+}
 .navbar {
-    background-color: #222831; /*#060b26*/
+    background-color: #393e46; /*#060b26  #f14107;*/
+    padding: 5px 150px;
     height: 80px;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
-  }
-  
-  .menu-bars {
+}
+
+.menu-bars {
     margin-left: 2rem;
     font-size: 2rem;
     background: none;
-  }
-  
-  .nav-menu {
-    background-color: #222831;
-    width: 250px;
+}
+body {
+}
+.nav-menu {
+    transition: 1s;
+    background-color: #393e46;
+    width: 100px;
+    /* width: 250px; */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -45,25 +59,30 @@
     top: 0;
     left: -100%;
     transition: 850ms;
-  }
-  
-  .nav-menu.active {
+}
+
+.nav-menu.active {
     left: 0;
     transition: 350ms;
-  }
-  
-  .nav-text {
+}
+.nav-menu:hover {
+    left: 0;
+    transition: 350ms;
+    width: 250px;
+}
+.nav-text {
     display: flex;
+
     justify-content: start;
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
     height: 60px;
-  }
-  
-  .nav-text a {
+}
+
+.nav-text a {
+    color: white;
     text-decoration: none;
-    color: #f5f5f5; /*#a90000*/
     font-size: 18px;
     width: 95%;
     height: 100%;
@@ -71,25 +90,31 @@
     align-items: center;
     padding: 0 16px;
     border-radius: 4px;
-  }
-  
-  .nav-text a:hover {
+}
+
+.nav-text a:hover {
+    transition: 1s;
+
     background-color: #393e46;
-  }
-  
-  .nav-menu-items {
+}
+
+.nav-menu-items {
     width: 100%;
-  }
-  
-  .navbar-toggle {
-    background-color:  #222831;
+}
+
+.navbar-toggle {
+    background-color: #222831;
     width: 100%;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
-  }
-  
-  span {
+}
+
+span {
     margin-left: 16px;
-  }
+}
+
+.nav-bar-item {
+    color: white;
+}

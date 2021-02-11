@@ -47,7 +47,7 @@ export default function ForgotPassword(props) {
                     <Card>
                         <Card.Body className="cardBody">
                             <Form>
-                                <h2 className="text-center mb-4">
+                                <h2 className="text-center mb-4 drk">
                                     Password reset
                                 </h2>
                                 <Form.Group id="email">
