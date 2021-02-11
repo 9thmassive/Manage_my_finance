@@ -1,27 +1,60 @@
 import React from 'react'
 import './dist/css/style.css'
 import './dist/css/ld.css'
+import Info from './Info'
 import { Link } from 'react-router-dom'
-import logo from './dist/images/logo.jpg'
+import app from './dist/images/svg/app.svg'
+import cutom_budget from './dist/images/svg/cutsom_budget.svg'
+import goal from './dist/images/svg/goal.svg'
+import save_smart from './dist/images/svg/save_smart.svg'
+import logo from './dist/images/logo.png'
 
 export default function LeadingPage() {
+    let info = [
+        {
+            icon: app,
+            title: ' All your money in one app',
+            txt: ` See where all your money goes by
+            easily adding your cash, credit
+            cards, investments, and bills.`,
+        },
+        {
+            icon: cutom_budget,
+            title: ' Spend smarter and save more',
+            txt: `Personalized Finance™ make
+            your money go further. We’ll
+            automatically find savings you
+            missed.`,
+        },
+        {
+            icon: save_smart,
+            title: ' Save smarter with custom budgets',
+            txt: `Start saving more today. Easily
+            create your budget in Finance.
+            We’ll automatically categorize
+            your transactions so you don’t
+            have to.`,
+        },
+    ]
+
     return (
         <>
             <div className="body-wrap">
                 <header className="site-header">
                     <div className="container">
-                        <div className="site-header-inner">
+                        <div className="site-header-inner head">
                             <div className="brand header-brand">
                                 <h1 className="m-0">
-                                    <a href="#">
-                                        <img
-                                            className="header-logo-image"
-                                            src={logo}
-                                            alt="Logo"
-                                        />
-                                    </a>
+                                    <img
+                                        className="header-logo-image log"
+                                        src={logo}
+                                        alt="Logo"
+                                    />
                                 </h1>
                             </div>
+                            {/* <div className="hero-cta">
+                                <a className="button ">Log in</a>
+                            </div> */}
                         </div>
                     </div>
                 </header>
@@ -35,64 +68,25 @@ export default function LeadingPage() {
                                         personal finance
                                     </h1>
                                     <p className="hero-paragraph">
-                                        Our landing page template works on all
-                                        devices, so you only have to set it up
-                                        once, and get beautiful results forever.
+                                        Reach your goals with personalized
+                                        insights, custom budgets, spend
+                                        tracking, and subscription
+                                        monitoring—all for free
                                     </p>
                                     <div className="hero-cta">
-                                        <a className="button  st" href="#">
+                                        <a
+                                            className="button  st"
+                                            href="/registration"
+                                        >
                                             Get start
                                         </a>
-                                        {/* <a className="button" href="#">
-                                            Get in touch
-                                        </a> */}
+                                        <a className="button" href="/login">
+                                            Login
+                                        </a>
                                     </div>
                                 </div>
                                 <div className="hero-figure anime-element">
-                                    <img src="https://www.transparentpng.com/thumb/finance/TpPTTh-finance-png-picture.png" />
-                                    {/*  <svg
-                                        className="placeholder"
-                                        width={528}
-                                        height={396}
-                                        viewBox="0 0 528 396"
-                                    >
-                                        <rect
-                                            width={528}
-                                            height={396}
-                                            style={{ fill: 'transparent' }}
-                                        />
-                                    </svg>
-                                    <div
-                                        className="hero-figure-box hero-figure-box-01"
-                                        data-rotation="45deg"
-                                    />
-                                    <div
-                                        className="hero-figure-box hero-figure-box-02"
-                                        data-rotation="-45deg"
-                                    />
-                                    <div
-                                        className="hero-figure-box hero-figure-box-03"
-                                        data-rotation="0deg"
-                                    />
-                                    <div
-                                        className="hero-figure-box hero-figure-box-04"
-                                        data-rotation="-135deg"
-                                    />
-                                    <div className="hero-figure-box hero-figure-box-05" />
-                                    <div className="hero-figure-box hero-figure-box-06" />
-                                    <div className="hero-figure-box hero-figure-box-07" />
-                                    <div
-                                        className="hero-figure-box hero-figure-box-08"
-                                        data-rotation="-22deg"
-                                    />
-                                    <div
-                                        className="hero-figure-box hero-figure-box-09"
-                                        data-rotation="-52deg"
-                                    />
-                                    <div
-                                        className="hero-figure-box hero-figure-box-10"
-                                        data-rotation="-50deg"
-                                    />*/}
+                                    <img src="https://cdn.pixabay.com/photo/2019/06/16/18/28/finance-icons-4278471_1280.png" />
                                 </div>
                             </div>
                         </div>
@@ -101,129 +95,16 @@ export default function LeadingPage() {
                         <div className="container">
                             <div className="features-inner section-inner has-bottom-divider">
                                 <div className="features-wrap">
-                                    <div className="feature text-center is-revealing">
-                                        <div className="feature-inner">
-                                            <div className="feature-icon">
-                                                <img
-                                                    src="dist/images/feature-icon-01.svg"
-                                                    alt="Feature 01"
-                                                />
-                                            </div>
-                                            <h4 className="feature-title mt-24">
-                                                All your money in one app
-                                            </h4>
-                                            <p className="text-sm mb-0">
-                                                See where all your money goes by
-                                                easily adding your cash, credit
-                                                cards, investments, and bills.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="feature text-center is-revealing">
-                                        <div className="feature-inner">
-                                            <div className="feature-icon">
-                                                <img
-                                                    src="dist/images/feature-icon-02.svg"
-                                                    alt="Feature 02"
-                                                />
-                                            </div>
-                                            <h4 className="feature-title mt-24">
-                                                Spend smarter and save more
-                                            </h4>
-                                            <p className="text-sm mb-0">
-                                                Personalized Mintsights™ make
-                                                your money go further. We’ll
-                                                automatically find savings you
-                                                missed.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="feature text-center is-revealing">
-                                        <div className="feature-inner">
-                                            <div className="feature-icon">
-                                                <img
-                                                    src="dist/images/feature-icon-03.svg"
-                                                    alt="Feature 03"
-                                                />
-                                            </div>
-                                            <h4 className="feature-title mt-24">
-                                                Save smarter with custom budgets
-                                            </h4>
-                                            <p className="text-sm mb-0">
-                                                Start saving more today. Easily
-                                                create your budget in Mint.
-                                                We’ll automatically categorize
-                                                your transactions so you don’t
-                                                have to.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="feature text-center is-revealing">
-                                        <div className="feature-inner">
-                                            <div className="feature-icon">
-                                                <img
-                                                    src="dist/images/feature-icon-04.svg"
-                                                    alt="Feature 04"
-                                                />
-                                            </div>
-                                            <h4 className="feature-title mt-24">
-                                                Be Productive
-                                            </h4>
-                                            <p className="text-sm mb-0">
-                                                Fermentum posuere urna nec
-                                                tincidunt praesent semper
-                                                feugiat nibh. A arcu cursus
-                                                vitae congue mauris. Nam at
-                                                lectus urna duis convallis.
-                                                Mauris rhoncus aenean vel elit
-                                                scelerisque mauris.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    {/* <div className="feature text-center is-revealing">
-                                        <div className="feature-inner">
-                                            <div className="feature-icon">
-                                                <img
-                                                    src="dist/images/feature-icon-05.svg"
-                                                    alt="Feature 05"
-                                                />
-                                            </div>
-                                            <h4 className="feature-title mt-24">
-                                                Be Productive
-                                            </h4>
-                                            <p className="text-sm mb-0">
-                                                Fermentum posuere urna nec
-                                                tincidunt praesent semper
-                                                feugiat nibh. A arcu cursus
-                                                vitae congue mauris. Nam at
-                                                lectus urna duis convallis.
-                                                Mauris rhoncus aenean vel elit
-                                                scelerisque mauris.
-                                            </p>
-                                        </div>
-                                    </div> */}
-                                    {/* <div className="feature text-center is-revealing">
-                                        <div className="feature-inner">
-                                            <div className="feature-icon">
-                                                <img
-                                                    src="dist/images/feature-icon-06.svg"
-                                                    alt="Feature 06"
-                                                />
-                                            </div>
-                                            <h4 className="feature-title mt-24">
-                                                Be Productive
-                                            </h4>
-                                            <p className="text-sm mb-0">
-                                                Fermentum posuere urna nec
-                                                tincidunt praesent semper
-                                                feugiat nibh. A arcu cursus
-                                                vitae congue mauris. Nam at
-                                                lectus urna duis convallis.
-                                                Mauris rhoncus aenean vel elit
-                                                scelerisque mauris.
-                                            </p>
-                                        </div>
-                                    </div> */}
+                                    {info.map(({ icon, title, txt }, index) => {
+                                        return (
+                                            <Info
+                                                icon={icon}
+                                                title={title}
+                                                txt={txt}
+                                                key={index}
+                                            />
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>
@@ -312,7 +193,7 @@ export default function LeadingPage() {
                                 <div className="cta-cta">
                                     <a
                                         className="button button-primary button-wide-mobile"
-                                        href="#"
+                                        href="/registration"
                                     >
                                         Get in touch
                                     </a>
@@ -327,8 +208,8 @@ export default function LeadingPage() {
                             <div className="brand footer-brand">
                                 <a href="#">
                                     <img
-                                        className="header-logo-image"
-                                        src="./dist/images/logo.jpg"
+                                        className="header-logo-image log"
+                                        src={logo}
                                         alt="Logo"
                                     />
                                 </a>
@@ -401,7 +282,7 @@ export default function LeadingPage() {
                                 </li>
                             </ul>
                             <div className="footer-copyright">
-                                © 2019 Solid, all rights reserved
+                                © 2021 by Super-Team
                             </div>
                         </div>
                     </div>
