@@ -2,7 +2,7 @@ import { Form, Button, Card } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import './login.css'
 import { useRef } from 'react'
-import { auth } from './firebase'
+import firebase from 'firebase'
 import { toast } from 'react-toastify'
 
 import './login.css'
@@ -13,7 +13,7 @@ export default function ForgotPassword(props) {
 
     async function handleForgot() {
         try {
-            await auth.sendPasswordResetEmail(emailRef)
+            await firebase.auth().sendPasswordResetEmail(emailRef)
             toast.info('📩' + ' Pleas check your email', {
                 position: 'bottom-right',
                 autoClose: 5000,
@@ -24,6 +24,7 @@ export default function ForgotPassword(props) {
                 progress: undefined,
             })
         } catch (e) {
+            alert('error')
             toast.error('❌ ' + e.message, {
                 position: 'bottom-right',
                 autoClose: 5000,
@@ -55,16 +56,15 @@ export default function ForgotPassword(props) {
                                     <Form.Control
                                         type="email"
                                         ref={emailRef}
-                                        required
                                     ></Form.Control>
                                 </Form.Group>
 
                                 <Button
                                     onClick={handleForgot}
                                     className="w-100 btn loginBtn signup"
-                                    type="sumit"
+                                    type="submit"
                                 >
-                                    Get new password
+                                    Reset Password
                                 </Button>
                             </Form>
                         </Card.Body>

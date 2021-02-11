@@ -72,7 +72,7 @@ export default function Login({ setUser }) {
                         <Card.Body className="cardBody">
                             <Form>
                                 <h2 className="text-center mb-4 drk">
-                                    Sign up
+                                    Sign in
                                 </h2>
                                 <Facebook />
 
@@ -110,7 +110,7 @@ export default function Login({ setUser }) {
                             </Form>
 
                             <Link to="/registartion">
-                                <Button className="w-100 btn ">Sing in</Button>
+                                <Button className="w-100 btn ">Sing up</Button>
                             </Link>
                         </Card.Body>
                     </Card>

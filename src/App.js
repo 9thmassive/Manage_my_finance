@@ -30,7 +30,7 @@ function App() {
                 {!user ? <Navbar /> : null}
 
                 <Switch>
-                    <Route path="/" exact component={Transaction} />
+                    <Route path="/ransaction" exact component={Transaction} />
                     <Route path="/income" component={Income} />
                     <Route path="/expenses" component={Expenses} />
                     <Route exact path="/">
