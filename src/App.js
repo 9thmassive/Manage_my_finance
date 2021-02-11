@@ -44,7 +44,7 @@ function App() {
                         <PieCharts /> */}
                         <Dashboard />
                     </Router>
-                    <Router exact path="/registartion">
+                    <Router exact path="/registration">
                         <Signup user={setUser} />
                     </Router>
                     <Route exact path="/login">

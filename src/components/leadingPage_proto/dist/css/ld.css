@@ -1,3 +1,19 @@
 .st {
     background-color: #d65a31;
 }
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.but {
+    background-color: #36d631;
+    cursor: pointer;
+}
+.log {
+    cursor: pointer;
+    width: 180px;
+}
+.card-icon {
+    width: 60px;
+}
