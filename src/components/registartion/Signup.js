@@ -1,7 +1,8 @@
-import { Form, Button, Card } from 'react-bootstrap'
+import { Form, Button, Card, Spinner } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import './login.css'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import firebase from 'firebase'
 import { auth } from './firebase'
 import * as EmailValidator from 'email-validator'
 import { useHistory } from 'react-router-dom'
@@ -11,10 +12,13 @@ import './login.css'
 
 toast.configure()
 export default function Signup({ setUser }) {
+    const [loading, setLoading] = useState(false)
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const history = useHistory()
+    const surNameRef = useRef()
+    const nameRef = useRef()
+    // const history = useHistory()
 
     function userMessage(type, message) {
         if (type) {
@@ -63,17 +67,29 @@ export default function Signup({ setUser }) {
             )
         }
         try {
+            setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-            userMessage(
-                true,
-                '✅ your account has been registered successfully'
-            )
+            let fullName =
+                nameRef.current.value + ' ' + surNameRef.current.value
+            let currentUser = auth.currentUser
+            currentUser.updateProfile({
+                displayName: fullName,
+            })
 
-            setUser(auth.currentUser)
-            console.log(auth.currentUser)
-            history.push('/dashboard')
-            return window.location.reload()
-        } catch {
+            await firebase
+                .firestore()
+                .collection('user')
+                .doc(currentUser.uid)
+                .set({
+                    displayName: currentUser.displayName,
+                })
+
+            setLoading(() => false)
+            setUser(currentUser)
+            window.location.href = '/dashboard'
+            userMessage(true, `✅ Welcome ${currentUser.displayName}`)
+        } catch (error) {
+            setLoading(false)
             return userMessage(
                 false,
                 '❌ The email address is already in use by another account.'
@@ -99,11 +115,13 @@ export default function Signup({ setUser }) {
                                     <Form.Label>Name</Form.Label>
                                     <Form.Control
                                         type="text"
+                                        ref={nameRef}
                                         required
                                     ></Form.Control>
                                     <Form.Label>Surname</Form.Label>
                                     <Form.Control
                                         type="text"
+                                        ref={surNameRef}
                                         required
                                     ></Form.Control>
                                 </Form.Group>
@@ -139,7 +157,22 @@ export default function Signup({ setUser }) {
                                     className="w-100 btn loginBtn signup"
                                     type="sumit"
                                 >
-                                    Login
+                                    {loading ? (
+                                        <>
+                                            <Spinner
+                                                as="span"
+                                                animation="border"
+                                                size="sm"
+                                                role="status"
+                                                aria-hidden="true"
+                                            />
+                                            <span className="sr-only">
+                                                Loading...
+                                            </span>
+                                        </>
+                                    ) : (
+                                        'Login'
+                                    )}
                                 </Button>
                             </Form>
                         </Card.Body>
