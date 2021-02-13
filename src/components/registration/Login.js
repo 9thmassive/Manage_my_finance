@@ -1,19 +1,19 @@
 import { Form, Button, Card } from 'react-bootstrap'
-import { Container } from 'react-bootstrap'
-import './login.css'
 import { useRef } from 'react'
-import { auth } from './firebase'
-import * as EmailValidator from 'email-validator'
-import { useHistory } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import './login.css'
-
+import * as EmailValidator from 'email-validator'
+import { Link, useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import Google from './loginWith/Google'
+import Facebook from './loginWith/Facebook'
+import 'react-toastify/dist/ReactToastify.css'
+import firebase from 'firebase'
+import { Container } from 'react-bootstrap'
+import { auth } from './firebase'
 toast.configure()
-export default function Signup({ setUser }) {
+export default function Login({ setUser }) {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
     const history = useHistory()
 
     function userMessage(type, message) {
@@ -39,45 +39,24 @@ export default function Signup({ setUser }) {
         })
     }
 
-    function signup(email, password) {
-        auth.createUserWithEmailAndPassword(email, password)
+    function login(email, password) {
+        return auth.signInWithEmailAndPassword(email, password)
     }
 
-    async function handleSumbit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
 
         if (!EmailValidator.validate(emailRef.current.value)) {
-            return userMessage(false, '❌ Invalid Email Address:')
+            return userMessage(false, `❌ Email not found`)
         }
 
-        if (!(passwordRef.current.value === passwordConfirmRef.current.value)) {
-            return userMessage(false, '❌ Password do not much')
-        }
-        if (
-            passwordRef.current.value.length < 6 ||
-            passwordConfirmRef.current.value < 6
-        ) {
-            return userMessage(
-                false,
-                '❌ Password should be minimum 6 characters'
-            )
-        }
         try {
-            await signup(emailRef.current.value, passwordRef.current.value)
-            userMessage(
-                true,
-                '✅ your account has been registered successfully'
-            )
-
+            await login(emailRef.current.value, passwordRef.current.value)
+            userMessage(true, `✅ Login`)
             setUser(auth.currentUser)
-            console.log(auth.currentUser)
-            history.push('/dashboard')
-            return window.location.reload()
-        } catch {
-            return userMessage(
-                false,
-                '❌ The email address is already in use by another account.'
-            )
+            return history.push('/dashboard')
+        } catch (error) {
+            return userMessage(false, `❌ ${error.message}`)
         }
     }
 
@@ -86,7 +65,6 @@ export default function Signup({ setUser }) {
             <Container
                 className="d-flex align-items-center justify-content-center"
                 style={{ minHeight: '100vh' }}
-                id="bolola"
             >
                 <div className="w-100" style={{ maxWidth: '400px' }}>
                     <Card>
@@ -95,18 +73,9 @@ export default function Signup({ setUser }) {
                                 <h2 className="text-center mb-4 drk">
                                     Sign up
                                 </h2>
-                                <Form.Group id="name">
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        required
-                                    ></Form.Control>
-                                    <Form.Label>Surname</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        required
-                                    ></Form.Control>
-                                </Form.Group>
+                                <Facebook />
+
+                                <Google setUser={setUser} />
                                 <Form.Group id="email">
                                     <Form.Label>Email</Form.Label>
                                     <Form.Control
@@ -115,7 +84,6 @@ export default function Signup({ setUser }) {
                                         required
                                     ></Form.Control>
                                 </Form.Group>
-
                                 <Form.Group id="password">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control
@@ -124,24 +92,25 @@ export default function Signup({ setUser }) {
                                         required
                                     ></Form.Control>
                                 </Form.Group>
-                                <Form.Group id="password-confirm">
-                                    <Form.Label>
-                                        Password Confirmation
-                                    </Form.Label>
-                                    <Form.Control
-                                        type="password"
-                                        ref={passwordConfirmRef}
-                                        required
-                                    ></Form.Control>
-                                </Form.Group>
+                                <Link to="/forgot-password">
+                                    Forgot password ?
+                                </Link>
                                 <Button
-                                    onClick={handleSumbit}
+                                    onClick={handleSubmit}
                                     className="w-100 btn loginBtn signup"
-                                    type="sumit"
+                                    type="submit"
                                 >
-                                    Login
+                                    LOGIN
                                 </Button>
+                                <hr />
+                                <div className="or">
+                                    <span> Or</span> <br />
+                                </div>
                             </Form>
+
+                            <Link to="/registration">
+                                <Button className="w-100 btn ">Sing in</Button>
+                            </Link>
                         </Card.Body>
                     </Card>
                 </div>

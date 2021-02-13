@@ -1,26 +1,23 @@
-import React from 'react'
-import * as FaIcons from 'react-icons/fa'
-import * as AiIcons from 'react-icons/ai'
-import * as IoIcons from 'react-icons/io'
-import * as GrIcons from 'react-icons/gr'
+import React from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io';
+import * as GrIcons from 'react-icons/gr';
+
+import { FaPiggyBank } from "react-icons/fa";
+import { BsArrowLeftRight } from "react-icons/bs";
 
 export const SidebarData = [
     {
-        title: 'Profil',
-        path: '/profil',
-        icon: <IoIcons.IoIosPaper />,
+        title: 'Transaction',
+        path: '/transaction',
+        icon: <BsArrowLeftRight />,
         cName: 'nav-text',
     },
     {
-
         title: 'Income',
         path: '/Income',
-        icon: <FaIcons.FaCartPlus />,
-
-        title: 'Find Saving',
-        path: '/find-saving',
-        icon: <IoIcons.IoIosPaper />,
-
+        icon: <FaPiggyBank />,
         cName: 'nav-text',
     },
     {

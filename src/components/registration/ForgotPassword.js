@@ -62,7 +62,7 @@ export default function ForgotPassword(props) {
                                 <Button
                                     onClick={handleForgot}
                                     className="w-100 btn loginBtn signup"
-                                    type="sumit"
+                                    type="submit"
                                 >
                                     Get new password
                                 </Button>
