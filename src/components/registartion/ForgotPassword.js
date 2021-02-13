@@ -24,7 +24,6 @@ export default function ForgotPassword(props) {
                 progress: undefined,
             })
         } catch (e) {
-            alert('error')
             toast.error('❌ ' + e.message, {
                 position: 'bottom-right',
                 autoClose: 5000,
