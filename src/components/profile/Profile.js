@@ -1,7 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
-import './profil.css'
-export default function Profil() {
+import './profile.css'
+export default function Profile() {
     return (
         <>
             <div className="container">
@@ -33,7 +33,7 @@ export default function Profil() {
                                                 <tr>
                                                     <td>
                                                         <strong>Name</strong>{' '}
-                                                        Worren Buffet
+                                                        Warren Buffet
                                                     </td>
                                                 </tr>
                                                 <tr>

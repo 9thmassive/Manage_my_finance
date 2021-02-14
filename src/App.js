@@ -21,7 +21,7 @@ import Expenses from './pages/Expenses'
 import LeadingPage from './components/leadingPage_proto/LeadingPage'
 
 import FindSaving from './components/findSaving/FindSaving'
-import Profil from './components/profil/Profil'
+import Profile from './components/profile/Profile'
 import Dashboard from './components/Rotation/Dashboard'
 
 import {
@@ -37,10 +37,10 @@ function App() {
         <div className="App">
             <Router>
                 {/*loggedIn ? <Navbar /> : <Header />*/}
-                {user ? <Navbar /> : null} {/* <Header /> instead of null*/}
+                {<registration /> ? <Navbar /> : null} {/* <Header /> instead of null*/}
 
                 <Switch>
-                <Navbar /> {/*may be added by me*/}
+                {/* <Navbar />may be added by me*/}
                     <Route path="/" exact component={Transaction} />
                     <Route path="/income" component={Income} />
                     <Route path="/expenses" component={Expenses} />
@@ -70,8 +70,8 @@ function App() {
                     <Route exact path="/user">
                         <User />
                     </Route>
-                    <Route exact path="/profil">
-                        <Profil />
+                    <Route exact path="/profile">
+                        <Profile />
                     </Route>
                     <Route exact path="/forgot-password">
                         <ForgotPassword />
