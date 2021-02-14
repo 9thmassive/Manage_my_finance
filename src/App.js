@@ -27,7 +27,7 @@ function App() {
     return (
         <div className="App">
             <Router>
-                {!user ? <Navbar /> : null}
+                {user ? <Navbar /> : null}
 
                 <Switch>
                     <Route path="/ransaction" exact component={Transaction} />
