@@ -6,7 +6,7 @@ import Login from './components/registartion/Login'
 import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
-import Navbar from './components/Navbar/Navbar'
+import Navbar from './components/Navbar_proto/Navbar'
 import LeadingPage from './components/leadingPage_proto/LeadingPage'
 import Transaction from './pages/Transaction'
 import Income from './pages/Income'
@@ -30,7 +30,7 @@ function App() {
                 {!user ? <Navbar /> : null}
 
                 <Switch>
-                    <Route path="/" exact component={Transaction} />
+                    <Route path="/ransaction" exact component={Transaction} />
                     <Route path="/income" component={Income} />
                     <Route path="/expenses" component={Expenses} />
                     <Route exact path="/">
